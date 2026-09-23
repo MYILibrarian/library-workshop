@@ -1,108 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
- 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
 <title>What's Your Library Workshop?</title>
  
 <style>
- 
 body {
 font-family: Arial, sans-serif;
-background: linear-gradient(
-135deg,
-#00152e 0%,
-#002147 40%,
-#003d73 100%
-);
- 
+background: background: linear-gradient(135deg, #00152e, #002147, #003d73);
 color: white;
-margin: 0;
+text-align: center;
+padding: 40px;
 min-height: 100vh;
- 
-display: flex;
-justify-content: center;
-align-items: center;
- 
-padding: 20px;
+margin: 0;
 }
  
 .container {
-max-width: 850px;
-width: 100%;
- 
-background: rgba(255,255,255,0.08);
-backdrop-filter: blur(10px);
- 
-padding: 40px;
-border-radius: 16px;
- 
-text-align: center;
+max-width: 800px;
+margin: auto;
+background: rgba(255,255,255,0.1);
+padding: 30px;
+border-radius: 15px;
 }
  
-h1 {
-margin-top: 0;
-}
- 
-input[type="date"] {
+input {
 padding: 12px;
+font-size: 16px;
 border-radius: 8px;
 border: none;
-font-size: 16px;
 }
  
 button {
 padding: 12px 20px;
-background: #FFCC00;
-color: #002147;
+font-size: 16px;
 border: none;
 border-radius: 8px;
-font-weight: bold;
+background: #ffcc00;
 cursor: pointer;
+font-weight: bold;
 margin-left: 10px;
 }
  
 button:hover {
-background: #FFD84D;
+background: #ffd633;
 }
  
 .result {
 margin-top: 30px;
 background: white;
 color: #333;
+padding: 25px;
 border-radius: 12px;
-padding: 30px;
-text-align: center;
+text-align:left;
 }
  
-.result h2,
-.result h3 {
-color: #002147;
+.result h2 {
+color: #7a0019;
 }
  
 .register-btn {
-display: inline-block;
-margin-top: 20px;
- 
-background: #FFCC00;
-color: #002147;
- 
-text-decoration: none;
-font-weight: bold;
- 
-padding: 14px 22px;
-border-radius: 8px;
+display:inline-block;
+padding:12px 18px;
+background:#ed1b2f;
+color:white;
+text-decoration:none;
+border-radius:8px;
+margin-top:10px;
+font-weight:bold;
 }
  
-.register-btn:hover {
-background: #FFD84D;
+.register-btn:hover{
+background:#c41527;
 }
- 
 </style>
 </head>
- 
 <body>
  
 <div class="container">
@@ -110,14 +82,11 @@ background: #FFD84D;
 <h1>📚 What's Your Library Workshop?</h1>
  
 <p>
-Enter your birthday and discover your workshop destiny.
+Enter your birthday to discover your McGill Library workshop destiny.
 </p>
  
 <input type="date" id="birthday">
- 
-<button onclick="findWorkshop()">
-Reveal My Workshop
-</button>
+<button onclick="findWorkshop()">Reveal My Workshop</button>
  
 <div id="result"></div>
  
@@ -129,37 +98,198 @@ const workshops = [
  
 {
 title:"How to Communicate Science More Effectively",
-date:"October 6, 2026",
-time:"10:00 AM",
+date:"2026-10-06",
+time:"10:00",
 url:"https://libraryrooms.mcgill.ca/event/4076246"
 },
  
 {
 title:"Library Research Skills",
-date:"October 7, 2026",
-time:"11:00 AM",
+date:"2026-10-07",
+time:"11:00",
 url:"https://libraryrooms.mcgill.ca/event/4044928"
 },
  
 {
-title:"A Mount Royal Walking Tour",
-date:"October 8, 2026",
-time:"2:30 PM",
+title:"A Mount Royal Walking Tour: Science, Poetry, and the Art of Paying Attention",
+date:"2026-10-08",
+time:"14:30",
 url:"https://libraryrooms.mcgill.ca/event/4061386"
 },
  
 {
-title:"APA Citation Style",
-date:"October 13, 2026",
-time:"1:00 PM",
+title:"APA Citation Style - The Basics and Beyond",
+date:"2026-10-13",
+time:"13:00",
 url:"https://libraryrooms.mcgill.ca/event/4045008"
 },
  
 {
 title:"Introduction to Zotero",
-date:"October 15, 2026",
-time:"11:00 AM",
+date:"2026-10-15",
+time:"11:00",
 url:"https://libraryrooms.mcgill.ca/event/4044939"
+},
+ 
+{
+title:"EndNote Essentials",
+date:"2026-10-21",
+time:"11:00",
+url:"https://libraryrooms.mcgill.ca/event/4060830"
+},
+ 
+{
+title:"Behind the Books: How Library Collections Are Built",
+date:"2026-10-22",
+time:"12:00",
+url:"https://libraryrooms.mcgill.ca/calendar/mcgill/behindthebooks"
+},
+ 
+{
+title:"Research After Graduation",
+date:"2026-10-22",
+time:"12:00",
+url:"https://libraryrooms.mcgill.ca/calendar/mcgill/researchaftergraduation"
+},
+ 
+{
+title:"From Dissertation to Publication (and Vice Versa)",
+date:"2026-10-22",
+time:"12:30",
+url:"https://libraryrooms.mcgill.ca/event/4074908"
+},
+ 
+{
+title:"Finding Statistics Canada Datasets and Exploring Them with Excel",
+date:"2026-10-23",
+time:"10:05",
+url:"https://libraryrooms.mcgill.ca/event/4055817"
+},
+ 
+{
+title:"Prepping for Your Lit Review",
+date:"2026-10-24",
+time:"13:35",
+url:"https://libraryrooms.mcgill.ca/event/4055824"
+},
+ 
+{
+title:"Finding Statistics for Your Paper: A Whirlwind Tour",
+date:"2026-10-26",
+time:"12:05",
+url:"https://libraryrooms.mcgill.ca/event/4055834"
+},
+ 
+{
+title:"Take the News Diet Challenge!",
+date:"2026-10-26",
+time:"12:30",
+url:"https://libraryrooms.mcgill.ca/event/4076216"
+},
+ 
+{
+title:"What's Wrong with This Picture? Fake News and Data Visualization",
+date:"2026-10-27",
+time:"14:00",
+url:"https://libraryrooms.mcgill.ca/event/4060547"
+},
+ 
+{
+title:"Book Proposals, Contracts, and Beyond: What Editors Want You to Know",
+date:"2026-10-29",
+time:"12:30",
+url:"https://libraryrooms.mcgill.ca/event/4056218"
+},
+ 
+{
+title:"Spill the Tea: A Data-Driven Look at Gossip",
+date:"2026-10-30",
+time:"11:00",
+url:"https://libraryrooms.mcgill.ca/event/4060324"
+},
+ 
+{
+title:"AI Literacy Week: AI and Legal Research",
+date:"2026-11-02",
+time:"12:00",
+url:"https://libraryrooms.mcgill.ca/event/4069133"
+},
+ 
+{
+title:"Avoiding AI",
+date:"2026-11-02",
+time:"13:00",
+url:"https://libraryrooms.mcgill.ca/event/4076385"
+},
+ 
+{
+title:"Finding and Verifying Primary Sources with GenAI",
+date:"2026-11-03",
+time:"13:00",
+url:"https://libraryrooms.mcgill.ca/event/4076389"
+},
+ 
+{
+title:"Getting Started with AI in Research",
+date:"2026-11-04",
+time:"12:00",
+url:"https://libraryrooms.mcgill.ca/event/4076791"
+},
+ 
+{
+title:"Introduction to AI-Assisted Scholarly Search",
+date:"2026-11-04",
+time:"14:00",
+url:"https://libraryrooms.mcgill.ca/event/4076244"
+},
+ 
+{
+title:"AI in Health Sciences Literature Reviews",
+date:"2026-11-05",
+time:"10:00",
+url:"https://libraryrooms.mcgill.ca/event/4076868"
+},
+ 
+{
+title:"Fakes, Forgeries, and Facsimiles Before and After AI",
+date:"2026-11-05",
+time:"14:30",
+url:"https://libraryrooms.mcgill.ca/event/4069187"
+},
+ 
+{
+title:"Peer Reviewing and Responding to Peer Review",
+date:"2026-11-12",
+time:"12:30",
+url:"https://libraryrooms.mcgill.ca/event/4056984"
+},
+ 
+{
+title:"Critical, Constructive, Collegial: A Guide to Peer Reviewing",
+date:"2026-11-13",
+time:"11:00",
+url:"https://libraryrooms.mcgill.ca/calendar/mcgill/CriticalConstructiveCollegial"
+},
+ 
+{
+title:"Map It! An Introduction to Digital Mapping Tools",
+date:"2026-11-17",
+time:"12:00",
+url:"https://libraryrooms.mcgill.ca/calendar/mcgill/mapit"
+},
+ 
+{
+title:"Broadening Readership Through Open Access Publishing",
+date:"2026-11-19",
+time:"12:30",
+url:"https://libraryrooms.mcgill.ca/event/4036441"
+},
+ 
+{
+title:"Publishing Research: From Choosing Your Publisher to Understanding Rights",
+date:"2026-11-26",
+time:"10:00",
+url:"https://libraryrooms.mcgill.ca/event/4075160"
 }
  
 ];
@@ -169,7 +299,7 @@ function findWorkshop() {
 const input = document.getElementById("birthday").value;
  
 if (!input) {
-alert("Please select your birthday.");
+alert("Please enter your birthday.");
 return;
 }
  
@@ -178,12 +308,11 @@ const birthDate = new Date(input);
 const month = birthDate.getMonth() + 1;
 const day = birthDate.getDate();
  
-const index = ((month * 31) + day) % workshops.length;
+const index = (month + day) % workshops.length;
  
 const workshop = workshops[index];
  
 document.getElementById("result").innerHTML = `
- 
 <div class="result">
  
 <h2>✨ Your Workshop Match ✨</h2>
@@ -191,22 +320,15 @@ document.getElementById("result").innerHTML = `
 <h3>${workshop.title}</h3>
  
 <p>
-<strong>📅 Date:</strong> ${workshop.date}
-</p>
- 
-<p>
+<strong>📅 Date:</strong> ${workshop.date}<br>
 <strong>⏰ Time:</strong> ${workshop.time}
 </p>
  
-<a
-href="${workshop.url}"
-target="_blank"
-class="register-btn">
+<a href="${workshop.url}" target="_blank" class="register-btn">
 Register for this Workshop
 </a>
  
 </div>
- 
 `;
 }
  
@@ -214,4 +336,3 @@ Register for this Workshop
  
 </body>
 </html>
-Show more lines
