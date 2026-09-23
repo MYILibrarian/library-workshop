@@ -1,25 +1,217 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+ 
 <head>
-<title>Test</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<title>What's Your Library Workshop?</title>
+ 
 <style>
-body{
-background:linear-gradient(
+ 
+body {
+font-family: Arial, sans-serif;
+background: linear-gradient(
 135deg,
 #00152e 0%,
 #002147 40%,
 #003d73 100%
 );
-color:white;
-font-family:Arial;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-margin:0;
+ 
+color: white;
+margin: 0;
+min-height: 100vh;
+ 
+display: flex;
+justify-content: center;
+align-items: center;
+ 
+padding: 20px;
 }
+ 
+.container {
+max-width: 850px;
+width: 100%;
+ 
+background: rgba(255,255,255,0.08);
+backdrop-filter: blur(10px);
+ 
+padding: 40px;
+border-radius: 16px;
+ 
+text-align: center;
+}
+ 
+h1 {
+margin-top: 0;
+}
+ 
+input[type="date"] {
+padding: 12px;
+border-radius: 8px;
+border: none;
+font-size: 16px;
+}
+ 
+button {
+padding: 12px 20px;
+background: #FFCC00;
+color: #002147;
+border: none;
+border-radius: 8px;
+font-weight: bold;
+cursor: pointer;
+margin-left: 10px;
+}
+ 
+button:hover {
+background: #FFD84D;
+}
+ 
+.result {
+margin-top: 30px;
+background: white;
+color: #333;
+border-radius: 12px;
+padding: 30px;
+text-align: center;
+}
+ 
+.result h2,
+.result h3 {
+color: #002147;
+}
+ 
+.register-btn {
+display: inline-block;
+margin-top: 20px;
+ 
+background: #FFCC00;
+color: #002147;
+ 
+text-decoration: none;
+font-weight: bold;
+ 
+padding: 14px 22px;
+border-radius: 8px;
+}
+ 
+.register-btn:hover {
+background: #FFD84D;
+}
+ 
 </style>
 </head>
+ 
 <body>
  
-<h1>IT WORKS 🎉</h1>
+<div class="container">
+ 
+<h1>📚 What's Your Library Workshop?</h1>
+ 
+<p>
+Enter your birthday and discover your workshop destiny.
+</p>
+ 
+<input type="date" id="birthday">
+ 
+<button onclick="findWorkshop()">
+Reveal My Workshop
+</button>
+ 
+<div id="result"></div>
+ 
+</div>
+ 
+<script>
+ 
+const workshops = [
+ 
+{
+title:"How to Communicate Science More Effectively",
+date:"October 6, 2026",
+time:"10:00 AM",
+url:"https://libraryrooms.mcgill.ca/event/4076246"
+},
+ 
+{
+title:"Library Research Skills",
+date:"October 7, 2026",
+time:"11:00 AM",
+url:"https://libraryrooms.mcgill.ca/event/4044928"
+},
+ 
+{
+title:"A Mount Royal Walking Tour",
+date:"October 8, 2026",
+time:"2:30 PM",
+url:"https://libraryrooms.mcgill.ca/event/4061386"
+},
+ 
+{
+title:"APA Citation Style",
+date:"October 13, 2026",
+time:"1:00 PM",
+url:"https://libraryrooms.mcgill.ca/event/4045008"
+},
+ 
+{
+title:"Introduction to Zotero",
+date:"October 15, 2026",
+time:"11:00 AM",
+url:"https://libraryrooms.mcgill.ca/event/4044939"
+}
+ 
+];
+ 
+function findWorkshop() {
+ 
+const input = document.getElementById("birthday").value;
+ 
+if (!input) {
+alert("Please select your birthday.");
+return;
+}
+ 
+const birthDate = new Date(input);
+ 
+const month = birthDate.getMonth() + 1;
+const day = birthDate.getDate();
+ 
+const index = ((month * 31) + day) % workshops.length;
+ 
+const workshop = workshops[index];
+ 
+document.getElementById("result").innerHTML = `
+ 
+<div class="result">
+ 
+<h2>✨ Your Workshop Match ✨</h2>
+ 
+<h3>${workshop.title}</h3>
+ 
+<p>
+<strong>📅 Date:</strong> ${workshop.date}
+</p>
+ 
+<p>
+<strong>⏰ Time:</strong> ${workshop.time}
+</p>
+ 
+<a
+href="${workshop.url}"
+target="_blank"
+class="register-btn">
+Register for this Workshop
+</a>
+ 
+</div>
+ 
+`;
+}
+ 
+</script>
+ 
+</body>
+</html>
+Show more lines
